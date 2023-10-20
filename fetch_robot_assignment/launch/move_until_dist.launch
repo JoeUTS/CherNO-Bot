@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="fetch_robot_assignment" type="move_until_dist.py" name="mycode_move_until_dist" output="screen">
+	</node>
+</launch>

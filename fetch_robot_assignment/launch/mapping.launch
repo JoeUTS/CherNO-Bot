@@ -1,0 +1,14 @@
+<launch>
+
+	<include file="$(find fetch_navigation)/launch/build_map.launch">
+	</include>
+
+	<node pkg="fetch_robot_assignment" type="keyboard_teleop.py"
+	name="Fetch_teleop" output="screen">
+	</node>
+
+	<node pkg="rviz" type="rviz" name="$(anon rviz)"
+	args="-d $(find fetch_robot_assignment)/config/fetch_assignment.rviz">
+	</node>
+
+</launch>

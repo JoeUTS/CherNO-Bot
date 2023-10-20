@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="fetch_robot_assignment" type="keyboard_teleop.py" name="fetch_teleop" output="screen">
+	</node>
+</launch>

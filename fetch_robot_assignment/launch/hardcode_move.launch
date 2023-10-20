@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="fetch_robot_assignment" type="hardcode_move.py" name="mycode_hardcode_move" output="screen">
+	</node>
+</launch>

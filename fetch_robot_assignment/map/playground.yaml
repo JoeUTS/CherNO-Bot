@@ -1,0 +1,7 @@
+image: /home/joseph/catkin_ws/src/fetch_robot_assignment/map/playground.pgm
+resolution: 0.050000
+origin: [-8.403985, -8.388314, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

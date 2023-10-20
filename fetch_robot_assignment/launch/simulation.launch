@@ -1,0 +1,32 @@
+<launch>
+
+  <!-- Settings for gazebo -->
+  <arg name="robot" default="fetch"/>
+  <arg name="debug" default="false"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="world" default="$(find fetch_robot_assignment)/worlds/world.world" />
+
+  <!-- Start Gazebo with custom world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world)"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- Load in robot from fetch robotics -->
+  <include file="$(find fetch_gazebo)/launch/include/$(arg robot).launch.xml" />
+
+  <!-- Launch Rviz -->
+  <node pkg="rviz" type="rviz" name="$(anon rivz)"
+    args="-d $(find fetch_robot_assignment)/config/fetch_assignment.rviz">
+  </node>
+
+  <!-- Launch MoveIt config -->
+  <node pkg="fetch_moveit_config" type="move_group.launch" name="moveit_config" output="screen">
+	</node>
+
+</launch>

@@ -1,0 +1,7 @@
+<launch>
+
+	<node pkg="rviz" type="rviz" name="$(anon rivz)"
+	args="-d $(find fetch_robot_assignment)/config/fetch_assignment.rviz">
+	</node>
+
+</launch>
