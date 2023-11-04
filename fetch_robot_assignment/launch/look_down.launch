@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="fetch_robot_assignment" type="look_down.py" name="looks_down" output="screen">
+	</node>
+</launch>

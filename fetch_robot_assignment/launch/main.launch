@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="fetch_robot_assignment" type="main.py" name="main" output="screen">
+	</node>
+</launch>

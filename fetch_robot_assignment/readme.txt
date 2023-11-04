@@ -23,5 +23,7 @@ roslaunch fetch_moveit_config  move_group.launch
 
 TO DO:
 You are currently trying to get the above file to launch with the simulation.launch file
-After this you are going to look into the ROS manipulation course to get the robot to pick up a bolt and drop it in the bucket behind
+
+YOU ARE TRYING TO GET THE VISUAL SERVOING WORKING
+WE NEED TH Z VALUE BY FINDING THE TRANSFORM OF THE HEAD AND CALCULATING THE DISTANCE BETWEEN THIS AND THE OBJECTS. YOU NEED TO FIND THE TF NAMES VIA: rosrun tf view_frames.
 

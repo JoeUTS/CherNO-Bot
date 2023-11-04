@@ -12,10 +12,10 @@ move_group = MoveGroupInterface("arm", "base_link")
 
 gripper_frame = 'gripper_link'
 
-gripper_poses = [Pose(point(0.809, 0.0, 1.358), Quaternion(0.01, 0.0, 0.0, 1.0)),
-                 Pose(point(0.809, 0.0, 1.136), Quaternion(0.01, 0.0, 0.0, 1.0))]
+gripper_poses = [Pose(Point(0.809, 0.0, 1.358), Quaternion(0.01, 0.0, 0.0, 1.0)),
+                 Pose(Point(0.809, 0.0, 1.136), Quaternion(0.01, 0.0, 0.0, 1.0))]
 
-gripper_pose_stamped = poseStamped()
+gripper_pose_stamped = PoseStamped()
 gripper_pose_stamped.header.frame_id = 'base_link'
 
 while not rospy.is_shutdown():
@@ -24,7 +24,7 @@ while not rospy.is_shutdown():
 
         gripper_pose_stamped.pose = pose
 
-        redult = move_group.moveToPose(gripper_pose_stamped, gripper_frame)
+        result = move_group.moveToPose(gripper_pose_stamped, gripper_frame)
 
         if result:
             if result.error_code.val == MoveItErrorCodes.SUCCESS:

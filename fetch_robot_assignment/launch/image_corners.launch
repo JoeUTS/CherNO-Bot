@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="fetch_robot_assignment" type="image_corners.py" name="image_corners" output="screen">
+	</node>
+</launch>

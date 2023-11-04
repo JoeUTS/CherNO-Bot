@@ -7,15 +7,15 @@ from moveit_msgs.msg import MoveItErrorCodes
 # what does anonymous do?
 rospy.init_node('move_to_ready_pose', anonymous=True)
 
-move_group = MoveGroupInterface("arm", "base_link")
+move_group = MoveGroupInterface("head", "base_link")
 
-joints = ["shoulder_pan_joint", "shoulder_lift_joint", "upperarm_roll_joint", "elbow_flex_joint", "forearm_roll_joint", "wrist_flex_joint", "wrist_roll_joint"]
+joints = ["head_pan_joint", "head_tilt_joint"]
 
-pose = [1.58, 0.0, 0.0, -1.57, 0.0, 1.57, 0.0]
+pose = [0.0, -1.57]
 
 while not rospy.is_shutdown():
 
-    result = move_group.moveToJointPosition(joints, pose, 0.02)
+    result = move_group.moveToPose(joints, pose, 0.02)
 
     if result:
         if result.error_code.val == MoveItErrorCodes.SUCCESS:

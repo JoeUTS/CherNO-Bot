@@ -4,14 +4,14 @@ import rospy
 from moveit_python import MoveGroupInterface
 from moveit_msgs.msg import MoveItErrorCodes
 
-# what does anonymous do?
-rospy.init_node('move_to_ready_pose', anonymous=True)
+# what does anonymous do? - it makes it so you can call the same node multiple times as a new instance
+rospy.init_node('move_to_home_pose', anonymous=True)
 
 move_group = MoveGroupInterface("arm", "base_link")
 
 joints = ["shoulder_pan_joint", "shoulder_lift_joint", "upperarm_roll_joint", "elbow_flex_joint", "forearm_roll_joint", "wrist_flex_joint", "wrist_roll_joint"]
 
-pose = [1.58, 0.0, 0.0, -1.57, 0.0, 1.57, 0.0]
+pose = [1.32, 1.4, -0.2, 1.7, 0.0, 1.57, 0.0]
 
 while not rospy.is_shutdown():
 
