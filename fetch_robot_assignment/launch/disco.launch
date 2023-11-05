@@ -1,4 +1,0 @@
-<launch>
-	<node pkg="fetch_robot_assignment" type="disco.py" name="disco" output="screen">
-	</node>
-</launch>
