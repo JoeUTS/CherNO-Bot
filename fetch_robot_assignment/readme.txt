@@ -4,10 +4,13 @@ NOTES FOR TEAM:
 - the two fetch_gazebo packages load in a fetch robot and and empty world (1st option) or simple room (2nd option)
 - the simulation I made is the current main simulation that I was planning on using for the assignment
 
+1. In terminal 1: roscore
+2. In terminal 2: roslaunch fetch_robot_assignment simulation.launch
+3. In terminal 3: roslaunch fetch_moveit_config  move_group.launch
+4. In terminal 4: roslaunch fetch_robot_assignment main.launch
 
-
-Run RVIZ with config
-rosrun rviz rviz -d /home/joseph/catkin_ws/src/fetch_robot_assignment/config/fetch_assignment.rviz
+run simulation I made
+roslaunch fetch_robot_assignment simulation.launch
 
 run fetch robot gazebo
 roslaunch fetch_gazebo simulation.launch
@@ -15,13 +18,8 @@ roslaunch fetch_gazebo simulation.launch
 run fetch robot gazebo playground
 roslaunch fetch_gazebo playground.launch
 
-run simulation I made
-roslaunch fetch_robot_assignment simulation.launch
-
 NEED TO RUN THIS TO MAKE ARM MOVE AT THIS POINT - this is not in the repo
 roslaunch fetch_moveit_config  move_group.launch
 
 TO DO:
-You are currently trying to get the above file to launch with the simulation.launch file
-
 YOU ARE CONVERTING THE VISUAL SERVOING TO IK MOVEMENTS

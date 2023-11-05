@@ -277,7 +277,7 @@ def ArmErrorChecking(result, move_group):
         if result.error_code.val == MoveItErrorCodes.SUCCESS:
             rospy.loginfo("Movement Successful")
         else:
-            # Error state 4 == pose unreachable
+            # Error state 4 == control failed
             rospy.logerr("Error! state: %s", move_group.get_move_action().get_state())
     else:
         # No responce is bad
@@ -308,7 +308,8 @@ rospy.init_node('main', anonymous=True)
 rospy.loginfo("Main Program Started")
 
 # Get into starting position
-pose_ready()
+#pose_ready()
+pose_home()
 
 # Move forward until in position
 rospy.loginfo("Moving")
@@ -410,9 +411,10 @@ redCorners = corners_detector(convertedImage, 0)
 rodTransform = CornersToTransform(convertedImage, redCorners, 0)
 rospy.loginfo("Rod found")
 
+# Convert
 for i in range(3):
-    rodTransform[i] = baseTransform[0,i] + rodTransform[i]
-    rodTransform[3+i] = baseEuler[i] + rodTransform[3+i]
+    rodTransform[i] = rodTransform[i] + baseTransform[0,i]
+    rodTransform[3+i] = rodTransform[3+i] + baseEuler[i]
 
 print('rodTransform: %s', rodTransform)
 
@@ -421,14 +423,12 @@ greenCorners = corners_detector(convertedImage, 1)
 slotTransform = CornersToTransform(convertedImage, greenCorners, 1)
 rospy.loginfo("Slot found")
 
-# CONVERT THESE TO THE BASE_LINK FRAME FOR THE IK
-
-test = [0.809, 0.0, 1.136, 0, 0, 0]
+test = [0.3, 0.3, 1.3, 0, 0, 0]
 
 # pick and place
 # Move to rod
-EndEffectorIK(rodTransform)
-#EndEffectorIK(test)
+#EndEffectorIK(rodTransform)
+EndEffectorIK(test)
 
 # Close gripper
 
