@@ -1,4 +1,0 @@
-<launch>
-	<node pkg="fetch_robot_assignment" type="move_end_effector.py" name="move_end_effector" output="screen">
-	</node>
-</launch>
