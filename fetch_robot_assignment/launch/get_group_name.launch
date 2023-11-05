@@ -1,4 +1,0 @@
-<launch>
-	<node pkg="fetch_robot_assignment" type="get_group_name.py" name="get_group_name" output="screen">
-	</node>
-</launch>
