@@ -1,4 +1,0 @@
-<launch>
-	<node pkg="fetch_robot_assignment" type="pose_home.py" name="pose_home" output="screen">
-	</node>
-</launch>
